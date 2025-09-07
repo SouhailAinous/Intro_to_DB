@@ -1,12 +1,14 @@
-
+-- USE THE TARGET DATABASE
 USE alx_book_store;
 
+-- AUTHORS TABLE
 CREATE TABLE IF NOT EXISTS authors (
     author_id INT AUTO_INCREMENT,
     author_name VARCHAR(215),
     PRIMARY KEY (author_id)
 ) ENGINE=INNODB;
 
+-- BOOKS TABLE
 CREATE TABLE IF NOT EXISTS books (
     book_id INT AUTO_INCREMENT,
     title VARCHAR(130),
@@ -17,6 +19,7 @@ CREATE TABLE IF NOT EXISTS books (
     FOREIGN KEY (author_id) REFERENCES authors(author_id)
 ) ENGINE=INNODB;
 
+-- CUSTOMERS TABLE
 CREATE TABLE IF NOT EXISTS customers (
     customer_id INT AUTO_INCREMENT,
     customer_name VARCHAR(215),
@@ -25,6 +28,7 @@ CREATE TABLE IF NOT EXISTS customers (
     PRIMARY KEY (customer_id)
 ) ENGINE=INNODB;
 
+-- ORDERS TABLE
 CREATE TABLE IF NOT EXISTS orders (
     order_id INT AUTO_INCREMENT,
     customer_id INT,
@@ -33,6 +37,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 ) ENGINE=INNODB;
 
+-- ORDER_DETAILS TABLE
 CREATE TABLE IF NOT EXISTS order_details (
     orderdetailid INT AUTO_INCREMENT,
     order_id INT,
